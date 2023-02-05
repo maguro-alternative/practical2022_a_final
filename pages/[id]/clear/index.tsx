@@ -61,7 +61,7 @@ type PathParams = {
         { params: { id: '1' } },
         { params: { id: '2' } },
         { params: { id: '3' } },
-        { params: { id: '4' } },
+        //{ params: { id: '4' } },
       ],
       fallback: false  // 上記以外のパスでアクセスした場合は 404 ページにする
     }
