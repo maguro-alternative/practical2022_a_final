@@ -13,11 +13,11 @@ export default function Mission(feed:any){
     const router = useRouter(); 
     return (
     <>
-        <head>
+        <Head>
             <title>あいづたんさクイズ</title>
             <link rel="icon" href="/favicon.ico" />
 
-        </head>
+        </Head>
         <header>
             <h1 className="headline">あいづたんさクイズ</h1>
         </header>

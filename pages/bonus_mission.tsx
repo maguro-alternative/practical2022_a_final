@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from "next/router"
 
 
-export default function(){
+export default function Bonus_mission(){
   const router = useRouter();
 
   const moveToAnswerPage = () => {

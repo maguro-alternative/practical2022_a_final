@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { useRouter } from "next/router"
 
-export default function hint() {
+export default function Hint() {
   const router = useRouter();
   const [hint] = useState(router.query.hint);
   const [point] = useState(router.query.point);

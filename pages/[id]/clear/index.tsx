@@ -51,7 +51,6 @@ type PathParams = {
     id: string;
   }
   // 事前生成するページのパス（URL のパラメータ部分）のリストを返します。
-  // eslint-disable-next-line @typescript-eslint/require-await
   export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
     // /books/001、/books/002、/books/003 のページを事前生成するには、
     // 次のように paths プロパティの値を設定して返します。
