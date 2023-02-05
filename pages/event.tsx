@@ -112,7 +112,7 @@ export default function Event(feed: UserTable){
                 <meta charSet='UTF-8'></meta>
                 <title>あいづたんさクイズ</title>
             </Head>
-            <body>
+            <div>
                 <header>
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
@@ -182,7 +182,7 @@ export default function Event(feed: UserTable){
                         <p style={{ textAlign: 'center' }}>300p</p>
                     </div>
                 </div>
-            </body>
+            </div>
         </>
     )
 }

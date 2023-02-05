@@ -24,7 +24,7 @@ export default function Hint() {
           <meta charSet='UTF-8'></meta>
           <title>あいづたんさクイズ</title>
         </Head>
-        <body>
+        <div>
           <header>
             <h1 className="headline">あいづたんさクイズ</h1>
           </header>
@@ -37,7 +37,7 @@ export default function Hint() {
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <button className="btn-circle" style={{ marginTop: '16px', fontSize: '24px' }} onClick={backToEventPage}>戻る</button>
           </div>
-        </body>
+        </div>
       </>
     )
   }

@@ -24,7 +24,7 @@ export default function Bonus_mission(){
         <title>あいづたんさクイズ</title>
       </Head>
 
-      <body>
+      <div>
         <header>
           <h1 className="headline">あいずたんさクイズ</h1>
         </header>
@@ -37,7 +37,7 @@ export default function Bonus_mission(){
         <button className="btn-box" style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} onClick={backToEventPage}>
           イベントページへ戻る
         </button>
-      </body>
+      </div>
     </>
   )
 }

@@ -24,7 +24,7 @@ export default function Answer_bonus_mission() {
         <title>あいづたんさクイズ</title>
       </Head>
 
-      <body>
+      <div>
         <header>
           <h1 className="headline">あいずたんさクイズ</h1>
         </header>
@@ -39,7 +39,7 @@ export default function Answer_bonus_mission() {
         <button className="btn-circle" style={{fontSize: '24px'}} onClick={backToBonusMissionPage}>戻る</button>
         &nbsp;
         <button className="btn-circle" style={{fontSize: '24px'}} onClick={moveToCompleteSubmitPage}>送信</button>
-      </body>
+      </div>
     </>
   )
 }

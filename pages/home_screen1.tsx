@@ -24,7 +24,7 @@ export default function Home() {
                 <meta charSet='UTF-8'></meta>
                 <title>あいづたんさクイズ</title>
             </Head>
-            <body>
+            <div>
 
                 <header>
                     <h1 className="headline">あいずたんさクイズ</h1>
@@ -38,7 +38,7 @@ export default function Home() {
 
                 <button className="btn-circle" style={{ fontSize: '24px' }} onClick={backToEventPage}>次へ</button>
 
-            </body>
+            </div>
 
 
         </>

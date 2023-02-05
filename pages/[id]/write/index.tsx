@@ -21,7 +21,7 @@ export default function Mission(feed:any){
         <header>
             <h1 className="headline">あいづたんさクイズ</h1>
         </header>
-        <body>
+        <div>
             <br></br>
             <mark>答え</mark>
             <br></br>
@@ -32,7 +32,7 @@ export default function Mission(feed:any){
                 <a href={`/${router.query.id}`} style={{ fontSize: '24px' }} className="btn-circle">戻る</a>
             &nbsp;
                 <a href={`/${router.query.id}/clear`} style={{ fontSize: '24px' }} className="btn-circle">送信</a>
-        </body>
+        </div>
     </>
     )
 }

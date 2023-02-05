@@ -26,7 +26,7 @@ export default function Mission(feed:PointTable){
         <header>
             <h1 className="headline">あいづたんさクイズ</h1>
         </header>
-        <body>
+        <div>
             <br></br>
             <mark>ミッションクリア！</mark>
             <br></br>
@@ -41,7 +41,7 @@ export default function Mission(feed:PointTable){
                 <a href="../../event" className="btn-circle" style={{ fontSize: '24px' }}>
                     ホームへ
                 </a>
-        </body>
+        </div>
    </>
 
     )

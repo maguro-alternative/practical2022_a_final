@@ -25,7 +25,7 @@ export default function Submited_bonus_mission (feed: UserTable){
         <link rel="icon" href="/favicon.ico" />
       </Head>
     
-      <body>
+      <div>
         <header>
           <h1 className="headline">あいずたんさクイズ</h1>
         </header>
@@ -41,7 +41,7 @@ export default function Submited_bonus_mission (feed: UserTable){
         <button className="btn-circle" style={{fontSize: '24px'}} onClick={BackToEventPage}>
           ホームへ
         </button>
-      </body>
+      </div>
     </>
   )
 }

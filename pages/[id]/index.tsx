@@ -19,7 +19,7 @@ export default function Mission(feed:any){
           <link rel="icon" href="/favicon.ico" />
           <h1 className="headline">あいづたんさクイズ</h1>
         </Head>
-        <body>
+        <div>
           <br/>
           <mark>ミッション！</mark>
           <br/>
@@ -30,7 +30,7 @@ export default function Mission(feed:any){
           <br/>
           <br/>
           <a href={`/${router.query.id}/write`} style={{ fontSize: '24px' }} className="btn-circle">答える</a>
-        </body>
+        </div>
       </>
     )
 }
