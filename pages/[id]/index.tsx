@@ -20,15 +20,15 @@ export default function Mission(feed:any){
           <h1 className="headline">あいづたんさクイズ</h1>
         </Head>
         <body>
-          <br></br>
+          <br/>
           <mark>ミッション！</mark>
-          <br></br>
-          <br></br>
+          <br/>
+          <br/>
           <div className="box-text"> 
             {feed.mission[Number(router.query.id)].mission_statement}
           </div>
-          <br></br>
-          <br></br>
+          <br/>
+          <br/>
           <a href={`/${router.query.id}/write`} style={{ fontSize: '24px' }} className="btn-circle">答える</a>
         </body>
       </>
