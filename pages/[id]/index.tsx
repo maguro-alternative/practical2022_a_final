@@ -9,9 +9,13 @@ import { GetStaticPaths} from 'next'
 
 
 type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
+type Mission = {feed:[Prisma.missionCreateManyInput]}
 
-export default function Mission(feed:any){
+export default function Mission(feed:Mission){
     const router = useRouter(); 
+    const page_id = Number(router.query.id)
+    
+    const statement = feed.feed[page_id].mission_statement
     return (
       <>
         <Head>
@@ -25,7 +29,7 @@ export default function Mission(feed:any){
           <br/>
           <br/>
           <div className="box-text"> 
-            {feed.mission[Number(router.query.id)].mission_statement}
+            {statement}
           </div>
           <br/>
           <br/>
@@ -62,5 +66,5 @@ export const getStaticProps: GetStaticProps = async () => {
   //missionの一覧を取得
   const mission = await prisma.mission.findMany();
 
-return { props: { mission } };
+  return { props: { feed:mission } };
 };
