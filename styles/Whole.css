@@ -1,0 +1,88 @@
+* {
+    margin:0; padding:0;
+  }  
+  body{
+    text-align: center;
+    font-size: 35px;
+    color: rgb(34, 34, 34);
+  }
+
+  /*header*/
+  header {
+    width: 100%;
+    padding: 35px 0;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #b9ff9c;
+  }
+  header .headline{
+    font-size: 30px;
+  }
+  .nav-list {
+    text-align: center;
+    padding: 30px 20px;
+    margin: 0 auto;
+  }
+  .nav-list-item {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+  }
+
+
+  /*button群*/
+  /*丸ボタン*/
+
+.btn-circle {
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    background: #b9ff9c;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+  }
+
+/*箱型ボタン１*/
+.btn-box {
+  border: none;
+  width: 80%;
+  border-radius: 15px;
+  display: inline-block;
+  background-color: #b9ff9c;
+  font-size: 20px;
+}
+
+/*箱型ボタン２(白抜き)*/
+.btn-box-white {
+  width: 80%;
+  border-radius:15px;
+  display: inline-block;
+  background-color: #ffffff;
+  border: 5px solid #3aac17;
+  font-size: 20px;
+}
+
+
+  /*box*/
+  .box-text{
+    padding: 20px;
+    border-radius:15px;
+    margin: auto;
+    border: 5px solid #3aac17;
+    width: 80%;
+  }
+
+   
+  mark {
+    background-color: #b9ff9c;
+  }
+
+  a{
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+  }
+  
