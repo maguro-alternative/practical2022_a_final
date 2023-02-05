@@ -8,7 +8,7 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 
 type UserTable = { feed: [Prisma.user_tableCreateInput] }
 
-const submited_bonus_mission = (feed: UserTable) => {
+export default function submited_bonus_mission (feed: UserTable){
   const router = useRouter();
 
   const BackToEventPage = () => {
@@ -47,7 +47,7 @@ const submited_bonus_mission = (feed: UserTable) => {
 }
 
 
-export default submited_bonus_mission
+//export default submited_bonus_mission
 
 
 export const getStaticProps: GetStaticProps = async () => {

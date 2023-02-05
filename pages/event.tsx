@@ -36,7 +36,7 @@ const customStyles = {
 // アプリのルートを識別するクエリセレクタを指定する。
 Modal.setAppElement('#__next')
 
-const event = (feed: UserTable) => {
+export default function event(feed: UserTable){
     const [modalIsOpen, setIsOpen] = useState(false)
 
     // モーダルを開く処理
@@ -187,7 +187,7 @@ const event = (feed: UserTable) => {
     )
 }
 
-export default event
+//export default event
 
 
 export const getStaticProps: GetStaticProps = async () => {

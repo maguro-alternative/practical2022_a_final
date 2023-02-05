@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from 'next/head'
 import prisma from '../../lib/prisma';
 
 import { PrismaClient,Prisma } from '@prisma/client';
@@ -17,9 +18,9 @@ export default function Mission(feed:any){
       <>
       <title>あいづたんさクイズ</title>
       <link rel="icon" href="/favicon.ico" />
-  <header>
+  <Head>
       <h1 className="headline">あいづたんさクイズ</h1>
-  </header>
+  </Head>
   <body>
       <br></br>
       <mark>ミッション！</mark>

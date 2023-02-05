@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from "next/router"
 
-const answer_bonus_mission = () => {
+export default function answer_bonus_mission() {
   const router = useRouter();
 
   const backToBonusMissionPage = () => {
@@ -44,4 +44,4 @@ const answer_bonus_mission = () => {
   )
 }
 
-export default answer_bonus_mission
+//export default answer_bonus_mission
