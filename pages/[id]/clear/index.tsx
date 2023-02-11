@@ -5,7 +5,7 @@ import prisma from '../../../lib/prisma';
 
 import { PrismaClient,Prisma } from '@prisma/client';
 
-import { GetServerSideProps , GetStaticProps} from 'next';
+import { GetStaticProps} from 'next';
 import { GetStaticPaths} from 'next'
 import { features } from 'process';
 
@@ -67,7 +67,7 @@ type PathParams = {
     }
   }
 
-export const getStaticProps: GetStaticProps = async (context:any) => {
+export const GetServerSideProps = async (context:any) => {
 
     const id = Number(context.params.id);
 
