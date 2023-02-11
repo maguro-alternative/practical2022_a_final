@@ -51,7 +51,7 @@ type PathParams = {
     id: string;
   }
   // 事前生成するページのパス（URL のパラメータ部分）のリストを返します。
-  export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
+/*export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
     // /books/001、/books/002、/books/003 のページを事前生成するには、
     // 次のように paths プロパティの値を設定して返します。
     // 本来は id のリストを外部 API（getBookList など）で取得します。
@@ -65,9 +65,9 @@ type PathParams = {
       ],
       fallback: false  // 上記以外のパスでアクセスした場合は 404 ページにする
     }
-  }
+}*/
 
-export const GetServerSideProps = async (context:any) => {
+export const getServerSideProps = async (context:any) => {
 
     const id = Number(context.params.id);
 
