@@ -190,7 +190,7 @@ export default function Event(feed: UserTable){
 //export default event
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     const feed = await prisma.user_table.findMany();
     //const ex_misstion = await prisma.extra_mission.findMany();
     //console.log(ex_misstion)
