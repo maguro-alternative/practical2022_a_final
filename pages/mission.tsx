@@ -6,18 +6,9 @@ import { PrismaClient,Prisma } from '@prisma/client';
 import { GetServerSideProps , GetStaticProps} from 'next';
 
 type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
+type MissionTable = {mission:[Prisma.missionUncheckedCreateInput]}
 
-/*
-ALTER TABLE user_table DROP COLUMN password
-{
-  feed: [
-    { id: '086be68d-e005-8432-509f-046437e24b07', password: 'ad' },
-    { id: 'c5d1f100-b9a1-4ee5-9f53-9a659265872e', password: 'pass' }
-  ]
-}
-*/
-
-export default function Home(feed: any) {
+export default function Home(feed: MissionTable) {
   console.log(feed.mission[0].mission_id)
 
   return (
@@ -33,47 +24,27 @@ export default function Home(feed: any) {
     </header>
 
       <br></br>
-      <a href={`/${feed.mission[0].mission_id}/`} className='btn-box-white'>
-      {feed.mission[0].mission_statement}
-        <div>{feed.mission[0].mission_point}pt</div>
-      </a>
-      <br></br>
-      <a href={`/${feed.mission[1].mission_id}/`} className='btn-box-white'>
-      {feed.mission[1].mission_statement}
-        <div>{feed.mission[1].mission_point}pt</div>
-      </a>
-      <br></br>
-      <a href={`/${feed.mission[2].mission_id}/`} className='btn-box-white'>
-      {feed.mission[2].mission_statement}
-        <div>{feed.mission[2].mission_point}pt</div>
-      </a>
-      <br></br>
-      <a href={`/${feed.mission[3].mission_id}/`} className='btn-box-white'>
-      {feed.mission[3].mission_statement}
-        <div>{feed.mission[3].mission_point}pt</div>
-      </a>
-      
+      {feed.mission.map(mission => (
+        <div key={mission.mission_id}>
+          <a href={`/${mission.mission_id}/`} className='btn-box-white'>
+            {mission.mission_statement}
+            <div>{mission.mission_point}pt</div>
+          </a>
+          <br></br>
+        </div>
+      ))}
     </>
   )
 }
 
 // ページへ初回アクセス時実行する
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 
   // user_tableの一覧を取得
   const feed = await prisma.user_table.findMany();
   console.log(feed)
 
-    //missionの一覧を取得
-const mission = await prisma.mission.findMany();
-/*
-    console.log(mission[0].mission_statement,mission[0].mission_point);
-    console.log(mission[1].mission_statement,mission[1].mission_point);
-    console.log(mission[2].mission_statement,mission[2].mission_point);
-    console.log(mission[3].mission_statement,mission[3].mission_point);
-*/
-
-
-  
+  //missionの一覧を取得
+  const mission = await prisma.mission.findMany();
   return { props: { mission } };
 };

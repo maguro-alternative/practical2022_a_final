@@ -5,7 +5,8 @@ import prisma from '../../../lib/prisma';
 
 import { PrismaClient,Prisma } from '@prisma/client';
 
-import { GetServerSideProps, GetStaticProps} from 'next';
+import { GetServerSideProps,GetServerSidePropsContext, GetStaticProps} from 'next';
+import { ParsedUrlQuery } from 'node:querystring'
 import { GetStaticPaths} from 'next'
 import { features } from 'process';
 
@@ -14,7 +15,7 @@ type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
 type PointTable = {
   plus_point:number
 }
-    
+ 
 export default function Mission(feed:PointTable){
     const router = useRouter();
     return (
@@ -67,11 +68,11 @@ type PathParams = {
     }
 }*/
 
-export const getServerSideProps: GetServerSideProps = async (context:any) => {
+export const getServerSideProps: GetServerSideProps = async (context:GetServerSidePropsContext<ParsedUrlQuery>) => {
 
-    const id = Number(context.params.id);
+    const id = Number(context.params?.id);
 
-    console.log(id)
+    //console.log(context)
 
     // missionを取得
     let plus_point = await prisma.mission.findMany({
@@ -83,7 +84,7 @@ export const getServerSideProps: GetServerSideProps = async (context:any) => {
         where: {user_id: 1},
         select:{point: true}
     });
-    console.log(plus_point,total_point);
+    //console.log(plus_point,total_point);
 
     // 更新
     const point_count = plus_point[0].mission_point + total_point[0].point
@@ -97,7 +98,7 @@ export const getServerSideProps: GetServerSideProps = async (context:any) => {
         }
       });
 
-    console.log(count)
+    //console.log(count)
  
     return { props: {plus_point:plus_point[0].mission_point} };
-    };
+};

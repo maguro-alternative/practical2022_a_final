@@ -1,54 +1,40 @@
 generator client {
-  provider = "prisma-client-js"
-  binaryTargets = ["native"]
+  provider      = "prisma-client-js"
+  //binaryTargets = ["native"]
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
-  //url      = env("DB_URL")
+  url      = env("DB_URL")
 }
-//idはとりあえずint
-//答え、いらない(ミッションの方で流用??)
-//model correctanswer {
-//  id                       String  @id @db.Uuid
-//  problem_id               String? @unique @db.Uuid
-//  correct_answer_statement String
-//}
 
-// 通常ミッション
-// 特にチームごとに分ける必要はない
-// mission_id        Int
-//        ミッションのid
-// mission_statement String
-//        ミッションの説明
-// mission_point     Int
-//        ミッション成功時付与されるポイント
 model mission {
   mission_id        Int    @id @default(autoincrement())
   mission_statement String
   mission_point     Int    @default(10)
 }
-// 臨時ミッション
-//  extra_mission_id        Int  @id @default(autoincrement())
-//  extra_mission_statement String
+
 model extra_mission {
-  extra_mission_id        Int  @id @default(autoincrement())
+  extra_mission_id        Int    @id @default(autoincrement())
   extra_mission_statement String
-  extra_mission_point     Int  @default(50)
+  extra_mission_point     Int    @default(50)
 }
 
-// 認証は保留
-// ポイントはチームで合算しない
 model user_table {
-  user_id    Int     @id @default(autoincrement())
-  nickname   String  @unique @default("会津")
-  team_name  String
-  point      Int     @default(0)
+  user_id   Int    @id @default(autoincrement())
+  nickname  String @unique @default("会津")
+  team_name String
+  point     Int    @default(0)
 }
 
-// 臨時ミッションの共有のみ
 model team {
-  team_name String @id
+  team_name        String @id
   extra_mission_id Int
+}
+
+model mission_answer {
+  id           Int    @id @default(autoincrement())
+  mission_id   Int    @unique
+  answer_text  String
+  answer_image String
 }

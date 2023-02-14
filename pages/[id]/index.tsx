@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Head from 'next/head'
 import prisma from '../../lib/prisma';
 
-import { PrismaClient,Prisma } from '@prisma/client';
+import { PrismaClient,Prisma, mission } from '@prisma/client';
 
 import { GetServerSideProps , GetStaticProps} from 'next';
 import { GetStaticPaths} from 'next'
@@ -34,6 +34,7 @@ export default function Mission(feed:Mission){
           <br/>
           <br/>
           <a href={`/${router.query.id}/write`} style={{ fontSize: '24px' }} className="btn-circle">答える</a>
+          <a href={`/${router.query.id}/image`} style={{ fontSize: '24px' }} className="btn-circle">画像で答える</a>
         </div>
       </>
     )
@@ -48,14 +49,10 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   // /books/001、/books/002、/books/003 のページを事前生成するには、
   // 次のように paths プロパティの値を設定して返します。
   // 本来は id のリストを外部 API（getBookList など）で取得します。
+  const mission = await prisma.mission.findMany();
+  const paths = mission.map((mission: { mission_id: Number; }) => ({ params: { id:String(mission.mission_id)}}))
   return {
-    paths: [
-      { params: { id: '0' } },
-      { params: { id: '1' } },
-      { params: { id: '2' } },
-      { params: { id: '3' } },
-      //{ params: { id: '4' } },
-    ],
+    paths,
     fallback: false  // 上記以外のパスでアクセスした場合は 404 ページにする
   }
 }

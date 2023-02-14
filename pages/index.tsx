@@ -61,5 +61,6 @@ export const getStaticProps: GetStaticProps = async () => {
             point: 0
         }
     })
+    //return {props:{a:0}}
     return { props: { feed } };
 };
