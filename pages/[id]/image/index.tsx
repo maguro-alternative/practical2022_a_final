@@ -1,6 +1,6 @@
 import axios,{AxiosResponse} from "axios";
 import { useRouter } from "next/router"
-
+import Head from 'next/head'
 
 type RES = {
   image_id:String | string,
@@ -51,8 +51,17 @@ export default function Images() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <label htmlFor="upload-button" style={{ border: "1px solid #222", borderRadius: 10, padding: 10, cursor: "pointer" }}>
+    <>
+      <Head>
+      <h1 className="headline">あいづたんさクイズ</h1>
+      </Head>
+      <br/><br/>
+
+      {/*ここにプレビュー用画像挿入*/}
+      <image src='' className='box-text' style={{width: '500px', height: '500px',margin: '10px'}}></image>
+
+      <br/><br/>
+      <label className="btn-circle" style={{ textAlign: 'center', marginTop: '16px', fontSize: '24px' }} >
         <input
           accept="image/*"
           id="upload-button"
@@ -60,9 +69,9 @@ export default function Images() {
           onChange={handleUploadClick}
           hidden
         />
-        Choose file
+        送信
       </label>
-    </div >
+    </>
   );
 };
 

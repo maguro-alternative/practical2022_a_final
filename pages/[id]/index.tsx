@@ -34,6 +34,7 @@ export default function Mission(feed:Mission){
           <br/>
           <br/>
           <a href={`/${router.query.id}/write`} style={{ fontSize: '24px' }} className="btn-circle">答える</a>
+          &nbsp
           <a href={`/${router.query.id}/image`} style={{ fontSize: '24px' }} className="btn-circle">画像で答える</a>
         </div>
       </>
