@@ -34,7 +34,7 @@ model team {
 
 model mission_answer {
   id           Int    @id @default(autoincrement())
-  mission_id   Int    @unique
+  mission_id   Int    
   answer_text  String
   answer_image String
 }
