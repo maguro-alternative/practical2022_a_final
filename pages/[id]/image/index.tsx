@@ -58,7 +58,7 @@ export default function Images() {
       <br/><br/>
 
       {/*ここにプレビュー用画像挿入*/}
-      <image src='' className='box-text' style={{width: '500px', height: '500px',margin: '10px'}}></image>
+      {/*<image src='' className='box-text' style={{width: '500px', height: '500px',margin: '10px'}}></image>*/}
 
       <br/><br/>
       <label className="btn-circle" style={{ textAlign: 'center', marginTop: '16px', fontSize: '24px' }} >
