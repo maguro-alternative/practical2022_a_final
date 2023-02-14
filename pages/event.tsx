@@ -150,6 +150,11 @@ export default function Event(feed: UserTable){
                 <div style={{ textAlign: 'center' }}>
                     <button className="btn-box" style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} onClick={moveToMission}>ミッションをチェック</button>
                 </div>
+                <div style={{ textAlign: 'center' }}>
+                    <a href='gallery' style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} >
+                        ギャラリー
+                    </a>
+                </div>
                 {/*三項関数で条件分岐*/}
                 {((10<=hour && hour<12) || (14<=hour && hour<16)) ?
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
