@@ -22,7 +22,9 @@ export default function Mission(feed:Mission){
           <title>あいづたんさクイズ</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
+        <header>
         <h1 className="headline">あいづたんさクイズ</h1>
+        </header>
         <div>
           <br/>
           <mark>ミッション！</mark>

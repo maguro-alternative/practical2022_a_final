@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap');
+
 * {
     margin:0; padding:0;
   }  
@@ -17,6 +20,7 @@
   }
   header .headline{
     font-size: 30px;
+    font-family: 'Mochiy Pop One', sans-serif;
   }
   .nav-list {
     text-align: center;
@@ -79,6 +83,9 @@
    
   mark {
     background-color: #b9ff9c;
+    font-size: 32px;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    padding: 8px;
   }
 
   a{
