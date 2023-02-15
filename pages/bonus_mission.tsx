@@ -26,7 +26,7 @@ export default function Bonus_mission(){
 
       <div>
         <header>
-          <h1 className="headline">あいづたんさクイズ</h1>
+          <h1 className="headline">あいずたんさクイズ</h1>
         </header>
 
         <button className='btn-box-white' style={{marginTop: '32px', padding: '16px'}}onClick={moveToAnswerPage}>
