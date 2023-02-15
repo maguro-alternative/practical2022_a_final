@@ -1,6 +1,5 @@
 generator client {
-  provider      = "prisma-client-js"
-  //binaryTargets = ["native"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -12,6 +11,7 @@ model mission {
   mission_id        Int    @id @default(autoincrement())
   mission_statement String
   mission_point     Int    @default(10)
+  answer_method     Int
 }
 
 model extra_mission {
@@ -34,7 +34,7 @@ model team {
 
 model mission_answer {
   id           Int    @id @default(autoincrement())
-  mission_id   Int    
+  mission_id   Int
   answer_text  String
   answer_image String
 }

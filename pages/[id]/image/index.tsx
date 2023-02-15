@@ -1,5 +1,6 @@
 import axios,{AxiosResponse} from "axios";
 import { useRouter } from "next/router"
+import { useState } from "react";
 
 
 type RES = {
@@ -12,10 +13,12 @@ type RES = {
 
 export default function Images() {  
   const router = useRouter();
+  const [preview, setPreview] = useState('');
   const handleUploadClick = async (e:any) => {
 
     const { id } = router.query;
     const file = e.target.files[0];
+    setPreview(window.URL.createObjectURL(file));
     const formData = new FormData();
     formData.append('imagedata', file);
     formData.append('access_token', 'BXntZiPXivTJ21IReAgmdq5tJEsJ4Af_IOCzUed4fcA')
@@ -53,6 +56,7 @@ export default function Images() {
   return (
     <div style={{ padding: 20 }}>
       <label htmlFor="upload-button" style={{ border: "1px solid #222", borderRadius: 10, padding: 10, cursor: "pointer" }}>
+        <img src={preview} />
         <input
           accept="image/*"
           id="upload-button"
