@@ -26,7 +26,7 @@ export default function Answer_bonus_mission() {
 
       <div>
         <header>
-          <h1 className="headline">あいづたんさクイズ</h1>
+          <h1 className="headline">あいずたんさクイズ</h1>
         </header>
 
         <br></br>

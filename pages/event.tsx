@@ -67,21 +67,21 @@ export default function Event(feed: UserTable){
     const moveToHint1 = () => {
         router.push({
             pathname: `/hint`,
-            query: { hint: clues[1], point: feed.feed[0].point, hintPoint: 500 }
+            query: { hint: clues[1], point: feed.feed[0].point, hintPoint: 100 }
         });
     }
 
     const moveToHint2 = () => {
         router.push({
             pathname: `/hint`,
-            query: { hint: clues[2], point: feed.feed[0].point, hintPoint: 1000 }
+            query: { hint: clues[2], point: feed.feed[0].point, hintPoint: 200 }
         });
     }
 
     const moveToHint3 = () => {
         router.push({
             pathname: `/hint`,
-            query: { hint: clues[3], point: feed.feed[0].point, hintPoint: 1500 }
+            query: { hint: clues[3], point: feed.feed[0].point, hintPoint: 300 }
         });
     }
 
@@ -98,12 +98,6 @@ export default function Event(feed: UserTable){
                 pathname:`/bonus_mission`
             }
         )
-    }
-
-    const moveToGallery = () => {
-        router.push({
-            pathname:`/gallery-screen1`
-        })
     }
 
     // 日本時間の時刻を取得(タイムゾーンの差を吸収)
@@ -123,7 +117,7 @@ export default function Event(feed: UserTable){
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div className="btn-box" style={{ marginTop: '28px', marginLeft: '32px', width: '128px', height: '32px', fontSize: '20px', border: '1px solid black' }} onClick={moveToGallery}>ギャラリーへ</div>
+                    <div style={{ marginTop: '32px', marginLeft: '32px', fontSize: '20px' }}>あかべこチーム</div>
                     <button className="btn-box" style={{ marginTop: '28px', marginRight: '32px', width: '128px', height: '32px', fontSize: '20px', border: '1px solid black' }} onClick={openModal}>今日の指令</button>
                     <Modal
                         // isOpenがtrueならモダールが起動する
@@ -151,10 +145,15 @@ export default function Event(feed: UserTable){
                     </Modal>
                 </div>
 
-                <p style={{ marginTop: '16px', marginLeft: '32px', fontSize: '24px' }}>現在のみんなで集めた<br></br>ポイントは...</p>
+                <p style={{ marginLeft: '32px', fontSize: '24px' }}>現在のポイントは...</p>
                 <h3 style={{ textAlign: 'center' }}>{feed.feed[0].point}p</h3>
                 <div style={{ textAlign: 'center' }}>
                     <button className="btn-box" style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} onClick={moveToMission}>ミッションをチェック</button>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                    <a href='gallery' style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} >
+                        ギャラリー
+                    </a>
                 </div>
                 {/*三項関数で条件分岐*/}
                 {((10<=hour && hour<12) || (14<=hour && hour<16)) ?
@@ -173,19 +172,19 @@ export default function Event(feed: UserTable){
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="box-text" style={{ marginTop: '16px', marginBottom: '16px' }} onClick={moveToHint1}>
-                        <p style={{ textAlign: 'center' }}>500p</p>
+                        <p style={{ textAlign: 'center' }}>100p</p>
                     </div>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="box-text" style={{ marginTop: '16px', marginBottom: '16px' }} onClick={moveToHint2}>
-                        <p style={{ textAlign: 'center' }}>1000p</p>
+                        <p style={{ textAlign: 'center' }}>200p</p>
                     </div>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="box-text" style={{ marginTop: '16px', marginBottom: '16px' }} onClick={moveToHint3}>
-                        <p style={{ textAlign: 'center' }}>1500p</p>
+                        <p style={{ textAlign: 'center' }}>300p</p>
                     </div>
                 </div>
             </div>

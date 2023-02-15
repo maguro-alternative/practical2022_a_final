@@ -43,7 +43,7 @@ export default function Mission(feed:PointTable){
                     ホームへ
                 </a>
                 &nbsp;
-                <a href="../../event" className="btn-circle" style={{ fontSize: '24px' }}>
+                <a href="../../gallery-screen1" className="btn-circle" style={{ fontSize: '24px' }}>
                     ギャラリー
                 </a>
         </div>
