@@ -24,9 +24,9 @@ export default function Gyallery(gallery: Mission_ans){
                 </header>
                 <a href="event"><button className="btn-sqer-box1">ホームに戻る</button></a>
                 <br />
-                <a href="#"><button className="btn-sqer-box1">写真</button></a>
+                <a href="#"><button className="btn-sqer-box2">写真</button></a>
                 &nbsp;
-                <a href="gallery-screen2"><button className="btn-sqer-box2">回答</button></a>
+                <a href="gallery-screen2"><button className="btn-sqer-box1">回答</button></a>
 
            
 

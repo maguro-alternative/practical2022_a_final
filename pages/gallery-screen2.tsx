@@ -31,10 +31,10 @@ export default function Home() {
                 </header>
                 <button className="btn-box" style={{ fontSize: '20px' }} onClick={backToEventPage}>ホームに戻る</button>
                 <br />
-                <a href="#"><button className="btn-sqer-box2">写真</button></a>
-                &nbsp;
-                <a href="gallery-screen1"><button className="btn-sqer-box1">回答</button></a>
                 
+                <a href="gallery-screen1"><button className="btn-sqer-box1">写真</button></a>
+                &nbsp;
+                <a href="#"><button className="btn-sqer-box2">回答</button></a>
 
                 <div style={{ margin: '24px' }}>ギャラリー</div>
                 <div className='box-text' style={{fontSize: '10px'}}></div>
