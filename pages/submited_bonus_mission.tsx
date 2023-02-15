@@ -27,7 +27,7 @@ export default function Submited_bonus_mission (feed: UserTable){
     
       <div>
         <header>
-          <h1 className="headline">あいずたんさクイズ</h1>
+          <h1 className="headline">あいづたんさクイズ</h1>
         </header>
         <br></br>
         <mark>ミッションクリア！</mark>
