@@ -100,6 +100,12 @@ export default function Event(feed: UserTable){
         )
     }
 
+    const moveToGallery = () => {
+        router.push({
+            pathname:`/gallery-screen1`
+        })
+    }
+
     // 日本時間の時刻を取得(タイムゾーンの差を吸収)
     const japanStandardTime = new Date(Date.now() + ((new Date().getTimezoneOffset() + (9 * 60)) * 60 * 1000));
     // 何時か取得
@@ -117,7 +123,7 @@ export default function Event(feed: UserTable){
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div style={{ marginTop: '32px', marginLeft: '32px', fontSize: '20px' }}>{/* ここに遷移先のページをお願いします */}</div>
+                    <div className="btn-box" style={{ marginTop: '28px', marginLeft: '32px', width: '128px', height: '32px', fontSize: '20px', border: '1px solid black' }} onClick={moveToGallery}>ギャラリーへ</div>
                     <button className="btn-box" style={{ marginTop: '28px', marginRight: '32px', width: '128px', height: '32px', fontSize: '20px', border: '1px solid black' }} onClick={openModal}>今日の指令</button>
                     <Modal
                         // isOpenがtrueならモダールが起動する
@@ -149,11 +155,6 @@ export default function Event(feed: UserTable){
                 <h3 style={{ textAlign: 'center' }}>{feed.feed[0].point}p</h3>
                 <div style={{ textAlign: 'center' }}>
                     <button className="btn-box" style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} onClick={moveToMission}>ミッションをチェック</button>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                    <a href='gallery' style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} >
-                        ギャラリー
-                    </a>
                 </div>
                 {/*三項関数で条件分岐*/}
                 {((10<=hour && hour<12) || (14<=hour && hour<16)) ?
