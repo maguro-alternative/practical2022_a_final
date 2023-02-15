@@ -11,6 +11,7 @@ type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
 
 export default function Mission(feed:any){
     const router = useRouter(); 
+    const { id } = router.query;
     return (
     <>
         <Head>
@@ -25,13 +26,16 @@ export default function Mission(feed:any){
             <br></br>
             <mark>答え</mark>
             <br></br>
-            <br></br>
-                <input type='text' className="box-text"></input>
-            <br></br>
-            <br></br>
-                <a href={`/${router.query.id}`} style={{ fontSize: '24px' }} className="btn-circle">戻る</a>
-            &nbsp;
-                <a href={`/${router.query.id}/clear`} style={{ fontSize: '24px' }} className="btn-circle">送信</a>
+            <form method="post" name="form1" action={`/api/text`}>
+                <br></br>
+                    <input type='text' name="answer" className="box-text"></input>
+                    <input type="hidden" name="mission_id" value={id}/>
+                <br></br>
+                <br></br>
+                    <a href={`/${router.query.id}`} style={{ fontSize: '24px' }} className="btn-circle">戻る</a>
+                &nbsp;
+                    <a href={`javascript:form1.submit()`} style={{ fontSize: '24px' }} className="btn-circle">送信</a>
+            </form>
         </div>
     </>
     )
