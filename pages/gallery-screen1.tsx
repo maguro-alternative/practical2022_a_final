@@ -22,7 +22,7 @@ export default function Gyallery(gallery: Mission_ans){
             <header>
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
-                <a href="event"><button className="btn-sqer-box2">ホームに戻る</button></a>
+                <a href="event"><button className="btn-box">ホームに戻る</button></a>
                 <br />
                 <a href="#"><button className="btn-sqer-box1">写真</button></a>
                 &nbsp;
