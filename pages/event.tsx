@@ -145,7 +145,7 @@ export default function Event(feed: UserTable){
                     </Modal>
                 </div>
 
-                <p style={{ marginLeft: '32px', fontSize: '24px' }}>現在のポイントは...</p>
+                <p style={{ marginLeft: '32px', fontSize: '24px' }}>現在のみんなで集めた<br></br>ポイントは...</p>
                 <h3 style={{ textAlign: 'center' }}>{feed.feed[0].point}p</h3>
                 <div style={{ textAlign: 'center' }}>
                     <button className="btn-box" style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} onClick={moveToMission}>ミッションをチェック</button>
