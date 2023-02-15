@@ -67,21 +67,21 @@ export default function Event(feed: UserTable){
     const moveToHint1 = () => {
         router.push({
             pathname: `/hint`,
-            query: { hint: clues[1], point: feed.feed[0].point, hintPoint: 100 }
+            query: { hint: clues[1], point: feed.feed[0].point, hintPoint: 500 }
         });
     }
 
     const moveToHint2 = () => {
         router.push({
             pathname: `/hint`,
-            query: { hint: clues[2], point: feed.feed[0].point, hintPoint: 200 }
+            query: { hint: clues[2], point: feed.feed[0].point, hintPoint: 1000 }
         });
     }
 
     const moveToHint3 = () => {
         router.push({
             pathname: `/hint`,
-            query: { hint: clues[3], point: feed.feed[0].point, hintPoint: 300 }
+            query: { hint: clues[3], point: feed.feed[0].point, hintPoint: 1500 }
         });
     }
 
@@ -117,7 +117,7 @@ export default function Event(feed: UserTable){
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div style={{ marginTop: '32px', marginLeft: '32px', fontSize: '20px' }}>あかべこチーム</div>
+                    <div style={{ marginTop: '32px', marginLeft: '32px', fontSize: '20px' }}>{/* ここに遷移先のページをお願いします */}</div>
                     <button className="btn-box" style={{ marginTop: '28px', marginRight: '32px', width: '128px', height: '32px', fontSize: '20px', border: '1px solid black' }} onClick={openModal}>今日の指令</button>
                     <Modal
                         // isOpenがtrueならモダールが起動する
@@ -145,7 +145,7 @@ export default function Event(feed: UserTable){
                     </Modal>
                 </div>
 
-                <p style={{ marginLeft: '32px', fontSize: '24px' }}>現在のみんなで集めた<br></br>ポイントは...</p>
+                <p style={{ marginTop: '16px', marginLeft: '32px', fontSize: '24px' }}>現在のみんなで集めた<br></br>ポイントは...</p>
                 <h3 style={{ textAlign: 'center' }}>{feed.feed[0].point}p</h3>
                 <div style={{ textAlign: 'center' }}>
                     <button className="btn-box" style={{ width: '256px', fontSize: '20px', border: '1px solid black' }} onClick={moveToMission}>ミッションをチェック</button>
@@ -172,19 +172,19 @@ export default function Event(feed: UserTable){
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="box-text" style={{ marginTop: '16px', marginBottom: '16px' }} onClick={moveToHint1}>
-                        <p style={{ textAlign: 'center' }}>100p</p>
+                        <p style={{ textAlign: 'center' }}>500p</p>
                     </div>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="box-text" style={{ marginTop: '16px', marginBottom: '16px' }} onClick={moveToHint2}>
-                        <p style={{ textAlign: 'center' }}>200p</p>
+                        <p style={{ textAlign: 'center' }}>1000p</p>
                     </div>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div className="box-text" style={{ marginTop: '16px', marginBottom: '16px' }} onClick={moveToHint3}>
-                        <p style={{ textAlign: 'center' }}>300p</p>
+                        <p style={{ textAlign: 'center' }}>1500p</p>
                     </div>
                 </div>
             </div>
