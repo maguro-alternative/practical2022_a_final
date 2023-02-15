@@ -53,12 +53,18 @@ export default function Images() {
   return (
     <>
       <Head>
-      <h1 className="headline">あいづたんさクイズ</h1>
+      <title>あいづたんさクイズ</title>
+      <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header>
+      <h1 className="headline">あいづたんさクイズ</h1>
+      </header>
       <br/><br/>
 
       {/*ここにプレビュー用画像挿入*/}
       {/*<image src='' className='box-text' style={{width: '500px', height: '500px',margin: '10px'}}></image>*/}
+
+      <div style={{fontSize: '15px'}}>※送った画像は取り消せません※</div>
 
       <br/><br/>
       <label className="btn-circle" style={{ textAlign: 'center', marginTop: '16px', fontSize: '24px' }} >
