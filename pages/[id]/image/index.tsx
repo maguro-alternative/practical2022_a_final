@@ -1,28 +1,32 @@
-import axios,{AxiosResponse} from "axios";
-import { useRouter } from "next/router"
 import Head from 'next/head'
+import axios, { AxiosResponse } from "axios";
+import { useRouter } from "next/router"
+import { useState } from "react";
+
 
 type RES = {
-  image_id:String | string,
-  permalink_url:String | string,
-  thumb_url:String | string,
-  url:string,
-  type:String | string
+  image_id: String | string,
+  permalink_url: String | string,
+  thumb_url: String | string,
+  url: string,
+  type: String | string
 }
 
-export default function Images() {  
+export default function Images() {
   const router = useRouter();
-  const handleUploadClick = async (e:any) => {
+  const [preview, setPreview] = useState('');
+  const handleUploadClick = async (e: any) => {
 
     const { id } = router.query;
     const file = e.target.files[0];
+    setPreview(window.URL.createObjectURL(file));
     const formData = new FormData();
     formData.append('imagedata', file);
     formData.append('access_token', 'BXntZiPXivTJ21IReAgmdq5tJEsJ4Af_IOCzUed4fcA')
 
     const result = await axios.post(
       "https://upload.gyazo.com/api/upload",
-      formData, 
+      formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -35,9 +39,9 @@ export default function Images() {
       axios.post(
         `../../api/gyazo`,
         {
-          mission_id:Number(id),
-          answer_text:"",
-          answer_image:res.data.url
+          mission_id: Number(id),
+          answer_text: "",
+          answer_image: res.data.url
         },
         {
           headers: {
@@ -53,30 +57,30 @@ export default function Images() {
   return (
     <>
       <Head>
-      <title>あいづたんさクイズ</title>
-      <link rel="icon" href="/favicon.ico" />
+        <meta charSet='UTF-8'></meta>
+        <title>あいづたんさクイズ</title>
       </Head>
       <header>
-      <h1 className="headline">あいづたんさクイズ</h1>
+        <h1 className="headline">あいづたんさクイズ</h1>
       </header>
-      <br/><br/>
-
-      {/*ここにプレビュー用画像挿入*/}
-      {/*<image src='' className='box-text' style={{width: '500px', height: '500px',margin: '10px'}}></image>*/}
-
+      <br></br>
+      <mark>画像を選ぶ</mark>
+      <br></br>
+      <br></br>
       <div style={{fontSize: '15px'}}>※送った画像は取り消せません※</div>
-
-      <br/><br/>
-      <label className="btn-circle" style={{ textAlign: 'center', marginTop: '16px', fontSize: '24px' }} >
-        <input
-          accept="image/*"
-          id="upload-button"
-          type="file"
-          onChange={handleUploadClick}
-          hidden
-        />
-        送信
-      </label>
+      <div style={{ padding: 20 }}>
+        <label htmlFor="upload-button" style={{ border: "1px solid #222", borderRadius: 10, padding: 10, cursor: "pointer" }}>
+          Choose file
+        </label>
+        <img src={preview} />
+          <input
+            accept="image/*"
+            id="upload-button"
+            type="file"
+            onChange={handleUploadClick}
+            hidden
+          />
+      </div >
     </>
   );
 };

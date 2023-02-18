@@ -2,21 +2,13 @@ import { resolveHref } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head'
 import { useRouter } from "next/router"
 import { PrismaClient,Prisma } from '@prisma/client';
-
+import prisma from '../lib/prisma';
 import { GetServerSideProps , GetStaticProps} from 'next';
 
 type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
+type Mission_ans = {gallerys:[Prisma.mission_answerUncheckedCreateInput]}
 
-
-export default function Home() {
-    // ここに処理
-    const router = useRouter();
-    const backToEventPage = () => {
-        router.push({
-            pathname: '/event'
-        });
-    }
-    // returnでhtmlの要素を返す
+export default function Gyallery(gallery: Mission_ans){
     return (
         <>
 
@@ -24,43 +16,46 @@ export default function Home() {
                 <meta charSet='UTF-8'></meta>
                 <title>あいづたんさクイズ</title>
             </Head>
-            <body>
+            <div>
 
                 <header>
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
-                <button className="btn-box" style={{ fontSize: '20px' }} onClick={backToEventPage}>ホームに戻る</button>
+                <a href="event"><button className="btn-box" style={{width:'50%'}}>ホームに戻る</button></a>
                 <br />
                 
                 <a href="gallery-screen1"><button className="btn-sqer-box1">写真</button></a>
                 &nbsp;
                 <a href="#"><button className="btn-sqer-box2">回答</button></a>
 
-                <div style={{ margin: '24px' }}>ギャラリー</div>
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                &nbsp;
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                <br />
-
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                &nbsp;
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                <br />
-
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                &nbsp;
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                <br />
-
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                &nbsp;
-                <div className='box-text' style={{fontSize: '10px'}}></div>
-                <br />
-
                 
-            </body>
+                <div style={{ margin: '24px' }}>ギャラリー</div>
+                {gallery.gallerys.map(gyallery => (
+                <div key={gyallery.id}>
+                    <p className='box-text' style={{margin:'24px auto',fontSize:'20px'}}
+                    >{gyallery.answer_text}
+                    </p>
+
+                    </div>
+                    ))}
+                
+            </div>
+
 
 
         </>
     )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    const gallery = await prisma.mission_answer.findMany();
+    const gallerys = [];
+
+    for(let i = 0; i < gallery.length; i++){
+        if(gallery[i].answer_text != ''){
+            gallerys.push(gallery[i]);
+        }
+    }
+
+    //console.log(gallery)
+    return {props: {gallerys}}
 }

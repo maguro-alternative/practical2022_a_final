@@ -6,8 +6,8 @@ import prisma from '../lib/prisma';
 import { GetServerSideProps , GetStaticProps} from 'next';
 
 type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
-type Mission_ans = {gallery:[Prisma.mission_answerUncheckedCreateInput]}
-export default function Gyallery(gallery: Mission_ans){
+type Mission_ans = {gallerys:[Prisma.mission_answerUncheckedCreateInput]}
+export default function Gyallery(gallerys: Mission_ans){
     return(
 
         <>
@@ -17,12 +17,12 @@ export default function Gyallery(gallery: Mission_ans){
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <body> 
+            <div> 
 
             <header>
                     <h1 className="headline">あいづたんさクイズ</h1>
                 </header>
-                <a href="event"><button className="btn-sqer-box1">ホームに戻る</button></a>
+                <a href="event"><button className="btn-box" style={{width:'50%'}}>ホームに戻る</button></a>
                 <br />
                 <a href="#"><button className="btn-sqer-box2">写真</button></a>
                 &nbsp;
@@ -31,24 +31,33 @@ export default function Gyallery(gallery: Mission_ans){
            
 
             <br></br>
-            {gallery.gallery.map(gyallery => (
+            <div style={{ margin: '24px' }}>ギャラリー</div>
+            {gallerys.gallerys.map(gyallery => (
                 <div key={gyallery.id}>
                     <img
                     alt=''
                     src={gyallery.answer_image}
-                    className='box-text' style={{width:'100px',height:'100px'}}></img>
+                    className='box-text' style={{marginTop:'10px',width:'100px',height:'100px'}}></img>
                     
                     <br></br>
                 </div>
             ))}
-            </body>
+            </div>
         </>
     )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const gallery = await prisma.mission_answer.findMany();
+    const gallerys = [];
+
+    for(let i = 0; i < gallery.length; i++){
+        if(gallery[i].answer_image != ''){
+            gallerys.push(gallery[i]);
+        }
+    }
+
     //console.log(gallery)
-    return {props: {gallery}}
+    return {props: {gallerys}}
 }
 
