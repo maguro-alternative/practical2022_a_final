@@ -17,7 +17,7 @@ export default function Gyallery(gallery: Mission_ans){
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <body> 
+            <div> 
 
             <header>
                     <h1 className="headline">あいづたんさクイズ</h1>
@@ -31,17 +31,18 @@ export default function Gyallery(gallery: Mission_ans){
            
 
             <br></br>
+            <div style={{ margin: '24px' }}>ギャラリー</div>
             {gallery.gallery.map(gyallery => (
                 <div key={gyallery.id}>
                     <img
                     alt=''
                     src={gyallery.answer_image}
-                    className='box-text' style={{width:'100px',height:'100px'}}></img>
+                    className='box-text' style={{marginTop:'10px',width:'100px',height:'100px'}}></img>
                     
                     <br></br>
                 </div>
             ))}
-            </body>
+            </div>
         </>
     )
 }
