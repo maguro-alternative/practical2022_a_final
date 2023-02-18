@@ -6,8 +6,8 @@ import prisma from '../lib/prisma';
 import { GetServerSideProps , GetStaticProps} from 'next';
 
 type UserTable={feed:[Prisma.user_tableUncheckedCreateInput]}
-type Mission_ans = {gallery:[Prisma.mission_answerUncheckedCreateInput]}
-export default function Gyallery(gallery: Mission_ans){
+type Mission_ans = {gallerys:[Prisma.mission_answerUncheckedCreateInput]}
+export default function Gyallery(gallerys: Mission_ans){
     return(
 
         <>
@@ -32,7 +32,7 @@ export default function Gyallery(gallery: Mission_ans){
 
             <br></br>
             <div style={{ margin: '24px' }}>ギャラリー</div>
-            {gallery.gallery.map(gyallery => (
+            {gallerys.gallerys.map(gyallery => (
                 <div key={gyallery.id}>
                     <img
                     alt=''
@@ -49,7 +49,15 @@ export default function Gyallery(gallery: Mission_ans){
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const gallery = await prisma.mission_answer.findMany();
+    const gallerys = [];
+
+    for(let i = 0; i < gallery.length; i++){
+        if(gallery[i].answer_image != ''){
+            gallerys.push(gallery[i]);
+        }
+    }
+
     //console.log(gallery)
-    return {props: {gallery}}
+    return {props: {gallerys}}
 }
 
