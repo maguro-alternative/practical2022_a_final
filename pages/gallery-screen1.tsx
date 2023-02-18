@@ -36,7 +36,7 @@ export default function Gyallery(gallery: Mission_ans){
                     <img
                     alt=''
                     src={gyallery.answer_image}
-                    className='box-text' style={{width:'100px',height:'100px'}}></img>
+                    className='box-text' style={{marginTop:'10px',width:'100px',height:'100px'}}></img>
                     
                     <br></br>
                 </div>
