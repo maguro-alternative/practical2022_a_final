@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap');
+
 * {
     margin:0; padding:0;
   }  
@@ -17,6 +20,7 @@
   }
   header .headline{
     font-size: 30px;
+    font-family: 'Mochiy Pop One', sans-serif;
   }
   .nav-list {
     text-align: center;
@@ -70,7 +74,7 @@
 .btn-sqer-box1 {
   border: none;
   width: 20%;
-  border-radius: 15px;
+  border-radius: 50px;
   display: inline-block;
   background-color: #b9ff9c;
   font-size: 20px;
@@ -80,9 +84,9 @@
 .btn-sqer-box2 {
   border: none;
   width: 20%;
-  border-radius: 15px;
+  border-radius: 50px;
   display: inline-block;
-  background-color: #2e9104;
+  background-color: #369e0a;
   font-size: 20px;
 }
 
@@ -98,6 +102,9 @@
    
   mark {
     background-color: #b9ff9c;
+    font-size: 32px;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    padding: 8px;
   }
 
   a{
