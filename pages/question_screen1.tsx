@@ -1,5 +1,8 @@
 import Head from 'next/head'
 import { useRouter } from "next/router"
+import prisma from '../lib/prisma'
+
+import { GetServerSideProps, GetStaticProps } from 'next';
 
 export default function Home() {
     // ここに処理
@@ -39,3 +42,21 @@ export default function Home() {
         </>
     )
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const feed = await prisma.user_table.findMany();
+    //const ex_misstion = await prisma.extra_mission.findMany();
+    //console.log(ex_misstion)
+    // 更新
+    await prisma.user_table.update({
+        // idが1のユーザーを
+        where: {
+            user_id: 1
+        },
+        // ポイントを100にする
+        data: {
+            point: 480
+        }
+    })
+    return { props: { feed } };
+};

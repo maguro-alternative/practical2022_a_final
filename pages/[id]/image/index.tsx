@@ -1,19 +1,20 @@
-import axios,{AxiosResponse} from "axios";
+import Head from 'next/head'
+import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router"
+
 import { useState } from "react";
 
 
 type RES = {
-  image_id:String | string,
-  permalink_url:String | string,
-  thumb_url:String | string,
-  url:string,
-  type:String | string
+  image_id: String | string,
+  permalink_url: String | string,
+  thumb_url: String | string,
+  url: string,
+  type: String | string
 }
 
-export default function Images() {  
+export default function Images() {
   const router = useRouter();
-  const [preview, setPreview] = useState('');
   const handleUploadClick = async (e:any) => {
 
     const { id } = router.query;
@@ -25,7 +26,7 @@ export default function Images() {
 
     const result = await axios.post(
       "https://upload.gyazo.com/api/upload",
-      formData, 
+      formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -38,9 +39,9 @@ export default function Images() {
       axios.post(
         `../../api/gyazo`,
         {
-          mission_id:Number(id),
-          answer_text:"",
-          answer_image:res.data.url
+          mission_id: Number(id),
+          answer_text: "",
+          answer_image: res.data.url
         },
         {
           headers: {
@@ -56,7 +57,6 @@ export default function Images() {
   return (
     <div style={{ padding: 20 }}>
       <label htmlFor="upload-button" style={{ border: "1px solid #222", borderRadius: 10, padding: 10, cursor: "pointer" }}>
-        <img src={preview} />
         <input
           accept="image/*"
           id="upload-button"
@@ -70,6 +70,10 @@ export default function Images() {
   );
 };
 
+
+function setPreview(arg0: string) {
+  throw new Error('Function not implemented.');
+}
 /*
 export default function Images(){
     return(

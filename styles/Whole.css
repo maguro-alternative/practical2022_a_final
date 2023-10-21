@@ -70,6 +70,25 @@
   font-size: 20px;
 }
 
+/*箱型ボタン3*/
+.btn-sqer-box1 {
+  border: none;
+  width: 20%;
+  border-radius: 50px;
+  display: inline-block;
+  background-color: #b9ff9c;
+  font-size: 20px;
+}
+
+/*箱型ボタン4*/
+.btn-sqer-box2 {
+  border: none;
+  width: 20%;
+  border-radius: 50px;
+  display: inline-block;
+  background-color: #369e0a;
+  font-size: 20px;
+}
 
   /*box*/
   .box-text{

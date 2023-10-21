@@ -30,7 +30,7 @@ export default function Mission(feed:Mission){
           <mark>ミッション！</mark>
           <br/>
           <br/>
-          <div className="box-text"> 
+          <div className="box-text" style={{fontSize: '24px'}}> 
             {statement}
           </div>
           <br/>
