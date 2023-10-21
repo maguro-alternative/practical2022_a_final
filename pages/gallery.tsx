@@ -21,12 +21,16 @@ export default function Gyallery(gallery: Mission_ans){
 
             <br></br>
             {gallery.gallery.map(gyallery => (
+                (gyallery.answer_image)?
                 <div key={gyallery.id}>
                     <img
                     alt=''
                     src={gyallery.answer_image}
                     />
                     <br></br>
+                </div>:
+                <div key={gyallery.id}>
+                    <p>{gyallery.answer_text}</p>
                 </div>
             ))}
         </>

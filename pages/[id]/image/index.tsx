@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router"
+
 import { useState } from "react";
 
 
@@ -14,8 +15,7 @@ type RES = {
 
 export default function Images() {
   const router = useRouter();
-  const [preview, setPreview] = useState('');
-  const handleUploadClick = async (e: any) => {
+  const handleUploadClick = async (e:any) => {
 
     const { id } = router.query;
     const file = e.target.files[0];
@@ -55,36 +55,25 @@ export default function Images() {
   };
 
   return (
-    <>
-      <Head>
-        <meta charSet='UTF-8'></meta>
-        <title>あいづたんさクイズ</title>
-      </Head>
-      <header>
-        <h1 className="headline">あいづたんさクイズ</h1>
-      </header>
-      <br></br>
-      <mark>画像を選ぶ</mark>
-      <br></br>
-      <br></br>
-      <div style={{fontSize: '15px'}}>※送った画像は取り消せません※</div>
-      <div style={{ padding: 20 }}>
-        <label htmlFor="upload-button" style={{ border: "1px solid #222", borderRadius: 10, padding: 10, cursor: "pointer" }}>
-          Choose file
-        </label>
-        <img src={preview} />
-          <input
-            accept="image/*"
-            id="upload-button"
-            type="file"
-            onChange={handleUploadClick}
-            hidden
-          />
-      </div >
-    </>
+    <div style={{ padding: 20 }}>
+      <label htmlFor="upload-button" style={{ border: "1px solid #222", borderRadius: 10, padding: 10, cursor: "pointer" }}>
+        <input
+          accept="image/*"
+          id="upload-button"
+          type="file"
+          onChange={handleUploadClick}
+          hidden
+        />
+        Choose file
+      </label>
+    </div >
   );
 };
 
+
+function setPreview(arg0: string) {
+  throw new Error('Function not implemented.');
+}
 /*
 export default function Images(){
     return(

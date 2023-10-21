@@ -38,7 +38,7 @@ export default function Mission(feed:Mission){
           {/*answer_methodが1の場合(会話型ミッション)、writeに移動*/}
           {(feed.feed[page_id].answer_method == 1)?
           <a href={`/${router.query.id}/write`} style={{ fontSize: '24px' }} className="btn-circle">答える</a>
-          :<a href={`/${router.query.id}/image`} style={{ fontSize: '20px' }} className="btn-circle">画像で答える</a>
+          :<a href={`/${router.query.id}/image`} style={{ fontSize: '24px' }} className="btn-circle">画像で答える</a>
           }
           </div>
       </>
